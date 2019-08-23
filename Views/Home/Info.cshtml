@@ -1,0 +1,43 @@
+@{ ViewData["Title"] = "Activity Info"; }
+@model Acty
+
+<div class="text-center">
+  @if(Model.IsCreator)
+  {
+    <a asp-action="Delete" asp-route-id="@Model.ActyId">
+      <button class="btn btn-danger btn-sm">DELETE</button>
+    </a>
+  }
+  else if(Model.IsAttending)
+  {
+    <a asp-action="Leave" asp-route-id="@Model.ActyId">
+      <button class="btn btn-primary btn-sm">Leave</button>
+    </a>
+  }
+  else
+  {
+    <a asp-action="Join" asp-route-id="@Model.ActyId">
+      <button class="btn btn-primary btn-sm">Join</button>
+    </a>
+  }
+
+  <h1>@Model.Title</h1>
+  <br>
+
+  <h3 class="text-left">Coordinator: @Model.Creator.FirstName</h3>
+  <br>
+
+  <h3 class="text-left">Description</h3>
+  <p class="text-left">@Model.Description</p>
+  <br>
+
+  <h6 class="text-left">Participants</h6>
+  <ul class="list-unstyled">
+    @foreach(var attendee in Model.Attendees)
+    {
+      <li class="text-left">@attendee.Attendee.FirstName</li>
+    }
+  </ul>
+
+
+</div>

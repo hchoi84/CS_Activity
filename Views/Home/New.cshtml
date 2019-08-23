@@ -1,0 +1,49 @@
+@{ ViewData["Title"] = "Create Activity"; }
+@model Acty
+
+<div class="text-center">
+  <h1>Create an Activity</h1>
+  <br>
+
+  <form asp-action="CreateActivity" asp-controller="Home" method="post">
+    <div class="form-group">
+      <label asp-for="Title" class="font-weight-bold"></label>
+      <input asp-for="Title" class="form-control">
+      <span asp-validation-for="Title"></span>
+    </div>
+    <div class="form-group">
+      <label asp-for="Date" class="font-weight-bold"></label>
+      <input asp-for="Date" class="form-control">
+      <span asp-validation-for="Date"></span>
+    </div>
+    <div class="form-group">
+      <label asp-for="Time" class="font-weight-bold"></label>
+      <input asp-for="Time" class="form-control">
+      <span asp-validation-for="Time"></span>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label asp-for="Duration" class="font-weight-bold"></label>
+        <input asp-for="Duration" class="form-control">
+        <span asp-validation-for="Duration"></span>
+      </div>
+      <div class="form-group col-md-6">
+        <label asp-for="DurationMetric" class="font-weight-bold"></label>
+        <select asp-for="DurationMetric" class="form-control">
+          <option value="Minutes">Minutes</option>
+          <option value="Hours">Hours</option>
+          <option value="Days">Days</option>
+        </select>
+        <span asp-validation-for="DurationMetric"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label asp-for="Description" class="font-weight-bold"></label>
+      <textarea asp-for="Description" class="form-control"></textarea>
+      <span asp-validation-for="Description"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+  <p>@ViewBag.Conflict</p>
+
+</div>

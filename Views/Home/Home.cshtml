@@ -1,0 +1,58 @@
+@{ ViewData["Title"] = "Activities"; }
+@model List<Acty>
+
+<div class="text-center">
+  <h1>Dojo Activity Center</h1>
+  <br>
+
+  <p><a asp-action="ActivityCreateForm">
+    <button class="btn btn-primary">Create Activity</button>
+  </a></p>
+
+  <p>@ViewBag.Conflict</p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Activity</th>
+        <th scope="col">Date and Time</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Event Coordinator</th>
+        <th scope="col">No of Participants</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach(var acty in Model)
+      {
+        <tr>
+          <td><a asp-action="Info" asp-route-id="@acty.ActyId">@acty.Title</a></td>
+          <td>@acty.Date.ToString("yyyy/MM/dd") @@ @acty.Time.ToString("hh:mm tt")</td>
+          <td>@acty.Duration @acty.DurationMetric</td>
+          <td>@acty.Creator.FirstName</td>
+          <td>@acty.Attendees.Count</td>
+          <td>
+            @if(acty.IsCreator)
+            {
+              <a asp-action="Delete" asp-route-id="@acty.ActyId">
+                <button class="btn btn-danger btn-sm">DELETE</button>
+              </a>
+            }
+            else if(acty.IsAttending)
+            {
+              <a asp-action="Leave" asp-route-id="@acty.ActyId">
+                <button class="btn btn-primary btn-sm">Leave</button>
+              </a>
+            }
+            else
+            {
+              <a asp-action="Join" asp-route-id="@acty.ActyId">
+                <button class="btn btn-primary btn-sm">Join</button>
+              </a>
+            }
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
