@@ -215,7 +215,7 @@ namespace exam.Controllers
         DateTime joinedStart =  jo.Date + jo.Time.TimeOfDay;
         DateTime joinedEnd = CalculateEndDateTime(joinedStart, jo.DurationMetric, jo.Duration);
         
-        if(actyToCompareStart < joinedEnd && actyToCompareEnd > actyToCompareStart)
+        if(actyToCompareStart < joinedEnd && actyToCompareEnd > joinedStart)
         {
           ViewBag.Conflict = $"There's a conflict with {jo.Title}";
           return true;
