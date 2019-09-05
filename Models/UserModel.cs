@@ -26,8 +26,8 @@ namespace exam.Models
     public string Email { get; set; }
 
     [Required(ErrorMessage="Required")]
-    [Display(Name="Password", Prompt="8-20, a-z, A-Z, 0-9, special")]
-    [MinLength(7, ErrorMessage="Minimum 8 characters")]
+    [Display(Name="Password", Prompt="8-20 characters, at least 1 of each (a-z, A-Z, 0-9, special)")]
+    [MinLength(7, ErrorMessage="8-20 characters, at least 1 of each (a-z, A-Z, 0-9, special)")]
     [DataType(DataType.Password)]
     [RegularExpression(@"^(?=(.*[a-z]))(?=.*[A-Z])(?=(.*[\d]))(?=(.*[\W]))(?!.*\s).{8,20}$", 
                       ErrorMessage="8-20 characters and minimum 1 of each (lower, upper, number, and special character)")]

@@ -13,12 +13,12 @@
 						<div class="form-group">
 							<label asp-for="Login.Email" class="font-weight-bold"></label>
 							<input asp-for="Login.Email" class="form-control">
-							<span asp-validation-for="Login.Email"></span>
+							<span class="error" asp-validation-for="Login.Email"></span>
 						</div>
 						<div class="form-group">
 							<label asp-for="Login.Password" class="font-weight-bold"></label>
 							<input asp-for="Login.Password" class="form-control">
-							<span asp-validation-for="Login.Password"></span>
+							<span class="error" asp-validation-for="Login.Password"></span>
 						</div>
 						<button type="submit" class="btn btn-primary">Login</button>
 					</form>
@@ -33,27 +33,27 @@
 						<div class="form-group">
 							<label asp-for="User.FirstName" class="font-weight-bold"></label>
 							<input asp-for="User.FirstName" class="form-control">
-							<span asp-validation-for="User.FirstName"></span>
+							<span class="error" asp-validation-for="User.FirstName"></span>
 						</div>
 						<div class="form-group">
 							<label asp-for="User.LastName" class="font-weight-bold"></label>
 							<input asp-for="User.LastName" class="form-control">
-							<span asp-validation-for="User.LastName"></span>
+							<span class="error" asp-validation-for="User.LastName"></span>
 						</div>
 						<div class="form-group">
 							<label asp-for="User.Email" class="font-weight-bold"></label>
 							<input asp-for="User.Email" class="form-control">
-							<span asp-validation-for="User.Email"></span>
+							<span class="error" asp-validation-for="User.Email"></span>
 						</div>
 						<div class="form-group">
 							<label asp-for="User.Password" class="font-weight-bold"></label>
 							<input asp-for="User.Password" class="form-control">
-							<span asp-validation-for="User.Password"></span>
+							<span class="error" asp-validation-for="User.Password"></span>
 						</div>
 						<div class="form-group">
 							<label asp-for="User.Confirm" class="font-weight-bold"></label>
 							<input asp-for="User.Confirm" class="form-control">
-							<span asp-validation-for="User.Confirm"></span>
+							<span class="error" asp-validation-for="User.Confirm"></span>
 						</div>
 						<button type="submit" class="btn btn-primary">Register</button>
 					</form>

@@ -73,3 +73,7 @@ body {
 .btn{
   margin: 0px 10px;
 }
+
+.error{
+  color: red;
+}
